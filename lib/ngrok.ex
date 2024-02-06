@@ -52,6 +52,7 @@ defmodule Ngrok do
           :protocol,
           :api_url,
           :name,
+          :id,
           :sleep_between_attempts
         ]),
         name: Keyword.get(opts, :name, __MODULE__)

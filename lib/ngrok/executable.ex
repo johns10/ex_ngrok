@@ -38,9 +38,4 @@ defmodule Ngrok.Executable do
   @spec log({target :: :stdout | :stderr, message :: String.t()}) :: :ok
   defp log({:stdout, message}), do: Logger.warn("#{__MODULE__} #{message}")
   defp log({:stderr, message}), do: Logger.warn("#{__MODULE__} #{message}")
-
-  @spec protocol_to_cmd(protocol :: Ngrok.protocol()) :: String.t()
-  defp protocol_to_cmd(protocol)
-  defp protocol_to_cmd(:https), do: protocol_to_cmd(:http)
-  defp protocol_to_cmd(protocol), do: Atom.to_string(protocol)
 end
