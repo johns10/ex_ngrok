@@ -29,11 +29,7 @@ defmodule Ngrok.Executable do
      Task.async(fn ->
        Rambo.run(
          @executable,
-         [
-           opts |> Keyword.fetch!(:protocol) |> protocol_to_cmd(),
-           opts |> Keyword.fetch!(:port) |> Integer.to_string()
-           | Keyword.get(opts, :additional_arguments, [])
-         ],
+         Keyword.get(opts, :additional_arguments, []),
          log: &log/1
        )
      end)}
